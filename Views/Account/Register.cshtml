@@ -1,0 +1,46 @@
+﻿@model RegisterViewModel
+
+<form asp-controller="Account" asp-action="Register" method="post" style="max-width:400px" class="mx-auto mt-5">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <h2>Faça seu cadastro abaixo</h2>
+    <br />
+    <div class="form-group">
+        <input asp-for="Email" placeholder="Insira seu email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <input asp-for="Password" placeholder="Insira uma senha forte" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <input asp-for="ConfirmPassword" placeholder="Repita sua senha" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" style="width:400px; height:40px" class="btn btn-dark">Cadastrar</button>
+    &nbsp;
+    <a style="width:400px; height:40px" class="btn btn-outline-primary" asp-controller="Account" asp-action="Login">
+        Voltar
+    </a>
+    <br />
+    <p>
+        Ao fazer login voçê concorda com nossa
+        <a asp-controller="Home" asp-action="Privacy">
+            Politica de privacidade
+        </a>
+        e
+        <a asp-controller="Home" asp-action="Termo">
+            nosso termos.
+        </a>
+    </p>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
